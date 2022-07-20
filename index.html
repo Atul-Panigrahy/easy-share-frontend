@@ -9,6 +9,15 @@
     <link rel="icon" href="images/logo.png" type="image/icon type" />
   </head>
   <body>
+    <div>
+      <img
+        src="./images/logo.png"
+        alt="easy-share logo"
+        class="logo"
+        draggable="false"
+      />
+      <div class="navBarTitle">easy-share</div>
+    </div>
     <section class="upload-container">
       <div class="drop-zone">
         <div class="icon-container">
@@ -58,12 +67,14 @@
               <label for="receiver">Receiver's Email</label>
               <input type="email" name="to-email" id="receiver" required />
             </div>
-            <button type="submit">Send</button>
+            <button type="submit" id="sendEmailBtn">Send</button>
           </form>
         </div>
       </div>
     </section>
 
+    <div class="toast">toast</div>
+    <div class="body-bg"></div>
     <script src="index.js"></script>
   </body>
 </html>

@@ -12,6 +12,27 @@ html {
   height: 100%;
   padding: 0;
   margin: 0;
+  overflow: hidden;
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 60px;
+}
+
+.navBarTitle {
+  position: absolute;
+  top: 30px;
+  left: 70px;
+  color: #104f83;
+  /* width: 100px; */
+  font-weight: bolder;
+  font-size: x-large;
+  border: 1px solid #2196f3;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 body,
@@ -21,6 +42,10 @@ body,
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+body {
+  flex-direction: row;
 }
 
 .upload-container {
@@ -200,4 +225,45 @@ p {
   border-radius: 5px;
   color: #607d8b;
   cursor: pointer;
+}
+
+.toast {
+  position: absolute;
+  bottom: 10px;
+  right: 50%;
+  transform: translate(50%, 60px);
+  padding: 10px 20px;
+  background: #2196f3;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: transform ease-in-out 0.2s;
+}
+
+.show.toast {
+  transform: translate(50%, 0);
+}
+
+.body-bg {
+  background: url(./images/cloud.svg) no-repeat center;
+  background-size: contain;
+  height: 50vh;
+  width: 50vw;
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    --container-width: 320px;
+  }
+
+  .upload-vector {
+    display: none;
+  }
+
+  .email-container .field {
+    flex-direction: column;
+    width: 300px;
+  }
 }
