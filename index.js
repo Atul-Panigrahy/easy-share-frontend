@@ -2,10 +2,35 @@ const dropZone = document.querySelector(".drop-zone");
 const browseBtn = document.querySelector("#browseBtn");
 const fileInput = document.querySelector("#fileInput");
 
+const progessContainer = document.querySelector(".progress-container");
+const bgProgress = document.querySelector(".bg-progress");
+const percentDiv = document.querySelector("#percent");
+const progressBar = document.querySelector(".progress-bar");
+
 const host = "http://localhost:3000";
 const uploadURL = `${host}/api/files`;
 
-const updateProgress = (event) => {};
+const updateProgress = (event) => {
+  progessContainer.style.display = "block";
+
+  // in Chrome console network tab Enable network throttling and present to slow 3G
+  // console.log(event);
+
+  const loaded = event.loaded;
+  const total = event.total;
+
+  const percentLoaded = Math.round((loaded / total) * 100);
+  // console.log(percentLoaded);
+  bgProgress.style.width = `${percentLoaded}%`;
+  percentDiv.innerText = `${percentLoaded}%`;
+
+  progressBar.style.transform = `scaleX(${percentLoaded / 100})`;
+};
+
+const showLink = ({ file }) => {
+  console.log(file);
+  progessContainer.style.display = "none";
+};
 
 const uploadFile = () => {
   const files = fileInput.files[0];
@@ -17,6 +42,7 @@ const uploadFile = () => {
     // console.log(xhr.readyState);
     if (xhr.readyState === XMLHttpRequest.DONE) {
       console.log(xhr.response);
+      showLink(JSON.parse(xhr.response));
     }
   };
 
