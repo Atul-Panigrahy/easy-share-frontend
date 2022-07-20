@@ -45,6 +45,22 @@
             draggable="false"
           />
         </div>
+
+        <p>OR Send via Email</p>
+        <div class="email-container">
+          <form id="emailForm">
+            <div class="field">
+              <label for="sender">Your Email</label>
+              <input type="email" name="from-email" id="sender" required />
+            </div>
+
+            <div class="field">
+              <label for="receiver">Receiver's Email</label>
+              <input type="email" name="to-email" id="receiver" required />
+            </div>
+            <button type="submit">Send</button>
+          </form>
+        </div>
       </div>
     </section>
 

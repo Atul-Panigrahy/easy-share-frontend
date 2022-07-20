@@ -11,6 +11,8 @@ const sharingContainer = document.querySelector(".sharing-container");
 const fileDownloadURL = document.querySelector("#fileDownloadURL");
 const copyBtn = document.querySelector("#copyBtn");
 
+const emailForm = document.querySelector("#emailForm");
+
 const host = "http://localhost:3000";
 const uploadURL = `${host}/api/files`;
 
@@ -56,6 +58,19 @@ copyBtn.addEventListener("click", (event) => {
   document.execCommand("copy");
 });
 
+emailForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const url = fileDownloadURL.value;
+  const formData = {
+    uuid: url.split("/").splice(-1, 1)[0],
+    emailFrom: emailForm.elements["from-email"].value,
+    emailTo: emailForm.elements["to-email"].value,
+  };
+  console.log(formData);
+});
+
+/* Utility Functions */
 const updateProgress = (event) => {
   progessContainer.style.display = "block";
 
