@@ -88,9 +88,12 @@ emailForm.addEventListener("submit", (event) => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      if (data.success) {
+      if (data.message === "Success!") {
         sharingContainer.style.display = "none";
         showToast("Email Sent");
+      } else {
+        sharingContainer.style.display = "none";
+        showToast("Sending Email unsuccessful!");
       }
     });
 });
@@ -164,9 +167,16 @@ const uploadFile = () => {
   xhr.send(formData);
 };
 
+const checkUserOnline = () => {
+  if (!navigator.onLine) {
+    showToast("Offline");
+  }
+};
+
 let toastTimer;
 // the toast function
 const showToast = (msg) => {
+  console.log(msg);
   clearTimeout(toastTimer);
   toast.innerText = msg;
   toast.classList.add("show");
