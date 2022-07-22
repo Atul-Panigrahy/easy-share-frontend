@@ -16,7 +16,8 @@ const sendEmailBtn = document.querySelector("#sendEmailBtn");
 
 const toast = document.querySelector(".toast");
 
-const host = "http://localhost:3000";
+// const host = "http://localhost:3000"; // for Local
+const host = "https://easy-share-backend-dev-atul.herokuapp.com";
 const uploadURL = `${host}/api/files`;
 const emailURL = `${host}/api/files/send`;
 
