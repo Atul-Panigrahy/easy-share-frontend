@@ -35,6 +35,21 @@ html {
   padding: 5px;
 }
 
+.real-time-option {
+  position: absolute;
+  top: 30px;
+  right: 70px;
+  color: #ffffff;
+  /* width: 100px; */
+  font-weight: bolder;
+  font-size: x-large;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 5px;
+  background: navy;
+  cursor: pointer;
+}
+
 body,
 .drop-zone,
 .upload-container {
